@@ -26,6 +26,16 @@ class BooksApp extends React.Component {
                     this.setState({newBooks: []});
                 } else {
                     this.setState({newBooks: books1});
+                    const updatedBooks=this.state.newBooks.map(b=>{
+                        this.state.myBooks.filter(mB=>{mB.id===b.id?
+                        b.shelf=mB.shelf
+                        :b.shelf='none'})
+                        return b;
+                        });
+                    this.setState({
+                        newBooks: updatedBooks,
+                    });
+
                 }
 
             });
@@ -39,6 +49,9 @@ class BooksApp extends React.Component {
      // console.log(this.state.newBooks[5]);
       if (
           (( this.state.myBooks.filter(book=>(book.id===bookID))).length!==0)) {
+          BooksAPI.update(bookID, shelf).then(books => {
+              console.log(books);
+          });
           console.log('Move');
           const updatedBooks = this.state.myBooks.map(cb => {
               if (cb.id === bookID) {
@@ -53,14 +66,18 @@ class BooksApp extends React.Component {
 
       }else{
           console.log('New');
+          const updatedBooks = this.state.myBooks;
           const addBooks = this.state.newBooks.filter(book=>(book.id===bookID));
-                addBooks.shelf='currentlyReading';
+                addBooks[0].shelf=shelf;
           console.log(addBooks);
-          this.setState((currentState) => ({
-            //  myBooks: currentState.myBooks.concat(addBooks[0])
-              myBooks: currentState.myBooks.concat([addBooks])
-            //  myBooks: currentState.myBooks.concat(addBooks)
-          }))
+          this.setState({
+              //(currentState) => ({
+              //  myBooks: currentState.myBooks.concat(addBooks[0])
+              myBooks: updatedBooks.concat(addBooks),
+              //  myBooks: currentState.myBooks.concat(addBooks)
+              //  })
+          });
+
 
       }
   };
@@ -68,7 +85,7 @@ class BooksApp extends React.Component {
 
 
     render(){
-
+        console.log(this.state.myBooks)
      // console.log(this.state.myBooks[0]);
      // console.log(this.state.myBooks[0].title);
 
