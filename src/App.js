@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Route, Link } from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import SearchBooks from "./search_Books";
 import ListBooks from "./List_Books";
 import * as BooksAPI from  './BooksAPI';
@@ -50,35 +50,29 @@ class BooksApp extends React.Component {
         }
     });
 
-   updateBooks = (bookID, shelf) => {
-       //  BooksAPI.update(bookID, shelf)
-          BooksAPI.update(bookID, shelf)
+   updateBooks = (book, shelf) => {
+          console.log(book);
+          BooksAPI.update(book, shelf)
               .then(books => {
-              console.log(books);
-                  console.log('bnbnb');
-
           })
-
               .catch(err => {
                   console.log(err);
                   this.setState({ error: true });
               });
-      if (
-          (( this.state.myBooks.filter(book=>(book.id===bookID))).length!==0)) {
-         // console.log('Move');
-          const updatedBooks = this.state.myBooks.map(cb => {
-              if (cb.id === bookID) {
-                  cb.shelf = shelf;
-              }
-              return cb;
+      if ( //move Book
+          (( this.state.myBooks.filter(mbook=>(mbook.id===book.id))).length!==0)) {
+             const updatedBooks = this.state.myBooks.map(ub => {
+              if (ub.id === book.id) {
+                  ub.shelf = shelf;
+               }
+              return ub;
           });
           this.setState({myBooks: updatedBooks});
-      }else{
-          const updatedBooks = this.state.myBooks;
-          const addBooks = this.state.newBooks.filter(book=>(book.id===bookID));
+      }else{  //Add book
+         // const updatedBooks = this.state.myBooks;
+          const addBooks = this.state.newBooks.filter(nbook=>(nbook.id===book.id));
                 addBooks[0].shelf=shelf;
-            //console.log(addBooks);
-          this.setState({myBooks: updatedBooks.concat(addBooks)});
+          this.setState({myBooks: this.state.myBooks.concat(addBooks)});
       }
   }
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css'
-import { Route, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import Shelves from "./Shelves";
 
 
@@ -17,8 +17,9 @@ class ListBooks extends Component {
                 </div>
                 <div className="list-books-content">
                      <div>
-                         {ShelfTitle.map(shelf=>(
-                             <Shelves  shTitle={shelf.title}
+                         {ShelfTitle.map((shelf,i)=>(
+                             <Shelves  key={i}
+                                       shTitle={shelf.title}
                                        shIndex={shelf.index}
                                        bookSH={this.props.lsBooks.filter(book=>(book.shelf===shelf.title))}
                                        moveB={this.props.onUpdate}

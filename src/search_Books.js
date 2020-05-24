@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css'
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Books from "./Books";
 
 
@@ -44,8 +44,9 @@ class SearchBooks extends Component {
                                 :
                          <ol className="books-grid">
                              {this.props.nBooks.length!==0?
-                                 this.props.nBooks.map((bookls) => (
+                                 this.props.nBooks.map((bookls ,i) => (
                                  < Books
+                                     key={i}
                                      book= {bookls}
                                      moveBook={this.props.onUpdate}
                                  />
