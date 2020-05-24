@@ -13,7 +13,7 @@ const Books =({book , moveBook})=> (
                             }}></div>
                             <BookShelfChanger
                                   cbook={book}
-                                  moveMe={moveBook}/>
+                                  moveShelf={moveBook}/>
                         </div>
                         <div className="book-title">{book.title}</div>
                         <div className="book-authors">{book.authors ? book.authors : 'Unknown Author'}</div>
