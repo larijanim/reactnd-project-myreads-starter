@@ -8,6 +8,7 @@ const ShelfTitle=[{title: 'read', index: 1},{title: 'currentlyReading',index:2},
 
 class ListBooks extends Component {
     render() {
+       // console.log(this.props);
         return (
             <div className="list-books">
 

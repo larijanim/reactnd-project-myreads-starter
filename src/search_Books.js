@@ -16,9 +16,6 @@ class SearchBooks extends Component {
         this.props.onSerBooks(query);
     }
 
-    clearQuery = () => {
-        this.bookQuery('')
-    }
     render() {
 
         return (
@@ -42,16 +39,18 @@ class SearchBooks extends Component {
                     </div>
                     <div className="search-books-results">
 
-                          {this.state.query==''?
-                                <div>nothing</div>
+                          {this.state.query===''?
+                                <div>Enter some keyword</div>
                                 :
                          <ol className="books-grid">
-                             {this.props.nBooks.map((bookls) => (
+                             {this.props.nBooks.length!==0?
+                                 this.props.nBooks.map((bookls) => (
                                  < Books
                                      book= {bookls}
                                      moveBook={this.props.onUpdate}
                                  />
-                              ))}
+                              )):<div>Try different words!</div>
+                             }
                         </ol>}
                     </div>
                 </div>
