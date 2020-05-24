@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+please :
+ npm install
+'npm install throttle-debounce'
+ npm install --save react-router-dom
+
+
 ## Available Scripts
 
 In the project directory, you can run:
