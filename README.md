@@ -48,9 +48,9 @@ Explain how to run the automated tests for this system
 
 ### Screenshot of APP
 
-![screenshot1](./src/assets/home.png)
+![screenshot1](./src/assets/homeLibrary.png)
 
-![screenshot2](./src/docs/assets/search.png)
+![screenshot2](./src/assets/searchBook.png)
 
 
 
