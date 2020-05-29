@@ -7,7 +7,7 @@ const Books =({book , moveBook})=> (
                 <li>
                     <div className="book">
                         <div className="book-top">
-                            <div className="book-cover" style={{
+                            <div className="book-cover" style={{ width: 128, height: 193,
                                   backgroundImage: `url(${book.imageLinks &&
                                   book.imageLinks.thumbnail})`,
                             }}></div>
