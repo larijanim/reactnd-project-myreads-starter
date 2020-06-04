@@ -31,9 +31,9 @@ $ npm start
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Not ready, I am working on that.
 
-### components Structure
+## components Structure
 
 * APP.js
 * List_books
@@ -46,7 +46,7 @@ Explain how to run the automated tests for this system
   * BooksShelfchnger.js
 
 
-### Screenshot of APP
+## Screenshot of APP
 
 ![screenshot1](./src/assets/homeLibrary.png)
 
@@ -69,7 +69,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Author
 
- *Initial work* - [Maryam Larijani](https://www.linkedin.com/in/maryam-larijani-7a575082/)
+  - [Maryam Larijani](https://www.linkedin.com/in/maryam-larijani-7a575082/)
 
 
 
