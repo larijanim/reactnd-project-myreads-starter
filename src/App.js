@@ -6,7 +6,7 @@ import ListBooks from "./List_Books";
 import * as BooksAPI from  './BooksAPI';
 import { debounce } from 'throttle-debounce';
 
-/**
+/** Maryam Larijani
  * @description Represents a book
  * @constructor
  * @param {string} title - The title of the book
