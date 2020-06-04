@@ -54,27 +54,26 @@ class BooksApp extends React.Component {
           console.log(book);
           BooksAPI.update(book, shelf)
               .then(books => {
-                  if ( //move Book
-                      (( this.state.myBooks.filter(mbook=>(mbook.id===book.id))).length!==0)) {
-                      const updatedBooks = this.state.myBooks.map(ub => {
-                          if (ub.id === book.id) {
-                              ub.shelf = shelf;
-                          }
-                          return ub;
-                      });
-                      this.setState({myBooks: updatedBooks});
-                  }else{  //Add book
-                      // const updatedBooks = this.state.myBooks;
-                      const addBooks = this.state.newBooks.filter(nbook=>(nbook.id===book.id));
-                      addBooks[0].shelf=shelf;
-                      this.setState({myBooks: this.state.myBooks.concat(addBooks)});
-                  }
           })
               .catch(err => {
                   console.log(err);
                   this.setState({ error: true });
               });
-
+      if ( //move Book
+          (( this.state.myBooks.filter(mbook=>(mbook.id===book.id))).length!==0)) {
+             const updatedBooks = this.state.myBooks.map(ub => {
+              if (ub.id === book.id) {
+                  ub.shelf = shelf;
+               }
+              return ub;
+          });
+          this.setState({myBooks: updatedBooks});
+      }else{  //Add book
+         // const updatedBooks = this.state.myBooks;
+          const addBooks = this.state.newBooks.filter(nbook=>(nbook.id===book.id));
+                addBooks[0].shelf=shelf;
+          this.setState({myBooks: this.state.myBooks.concat(addBooks)});
+      }
   }
 
 
